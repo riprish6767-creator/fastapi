@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A calm, clear workspace for managing your student community."
+    />
+    <meta name="theme-color" content="#f6f7f4" />
+    <title>Campus — Student dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/dashboard.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="Campus home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M5 13.4 16 6l11 7.4v12.1a1.5 1.5 0 0 1-1.5 1.5h-19A1.5 1.5 0 0 1 5 25.5V13.4Z" fill="currentColor" />
+              <path d="M12 27V16h8v11M3 14l13-9 13 9" stroke="#F6F7F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="brand-name">campus<span>.</span></span>
+        </a>
+
+        <p class="nav-label">WORKSPACE</p>
+        <nav class="nav-links">
+          <a class="nav-link active" href="#overview">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg>
+            Overview
+          </a>
+          <a class="nav-link" href="#directory">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h3a4.5 4.5 0 0 1 4.5 4.5V20M16 5.2a3.5 3.5 0 0 1 0 6.6M18 14.2a4.5 4.5 0 0 1 3 4.3V20"/></svg>
+            Students
+            <span class="nav-count" id="nav-count">—</span>
+          </a>
+          <a class="nav-link" href="#insights">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 6-7"/></svg>
+            Insights
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-note">
+            <span class="note-spark" aria-hidden="true">✦</span>
+            <p>Good things grow<br />when we <strong>grow together.</strong></p>
+            <span class="note-decoration" aria-hidden="true"></span>
+          </div>
+          <div class="profile">
+            <div class="profile-avatar" aria-hidden="true">C</div>
+            <div class="profile-copy">
+              <strong>Campus Admin</strong>
+              <span>Workspace owner</span>
+            </div>
+            <span class="profile-menu" aria-hidden="true">···</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong>Overview</strong></div>
+          <div class="topbar-right">
+            <span class="date-label" id="today-label"></span>
+            <span class="live-status"><span class="live-dot"></span> Live overview</span>
+          </div>
+        </header>
+
+        <section class="page-content">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> YOUR STUDENT COMMUNITY</p>
+              <h1>A little more <span>connected.</span></h1>
+              <p class="welcome-copy">A clear view of the people and ideas shaping your campus.</p>
+            </div>
+            <button class="button button-primary" id="open-add" type="button">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              Add student
+            </button>
+          </div>
+
+          <section class="hero-card" aria-label="Campus community summary">
+            <div class="hero-copy">
+              <span class="hero-kicker"><span class="hero-kicker-dot"></span> YOUR CAMPUS, AT A GLANCE</span>
+              <h2>Every student<br />has a story.</h2>
+              <p>Keep your community close, one connection at a time.</p>
+              <a class="hero-link" href="#directory">Explore your directory <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="artwork-wrap" aria-hidden="true">
+              <canvas id="community-art"></canvas>
+              <div class="art-orb orb-one"></div>
+              <div class="art-orb orb-two"></div>
+              <div class="art-label label-one"><span class="label-dot dot-lime"></span> Curiosity</div>
+              <div class="art-label label-two"><span class="label-dot dot-pink"></span> Community</div>
+              <div class="art-label label-three"><span class="label-dot dot-blue"></span> Possibility</div>
+            </div>
+            <div class="hero-index">01 <span>/</span> 03</div>
+          </section>
+
+          <section class="stats-grid" aria-label="Student statistics">
+            <article class="stat-card">
+              <div class="stat-heading"><span>Total students</span><span class="stat-icon icon-lime"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h3a4.5 4.5 0 0 1 4.5 4.5V20M16 5.2a3.5 3.5 0 0 1 0 6.6M18 14.2a4.5 4.5 0 0 1 3 4.3V20"/></svg></span></div>
+              <div class="stat-value" id="stat-students">—</div>
+              <div class="stat-foot"><span class="stat-foot-mark">↗</span> members in your community</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-heading"><span>Courses represented</span><span class="stat-icon icon-lilac"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 8.5 9-5 9 5-9 5-9-5Z"/><path d="M6.5 10.5v5c3.5 3 7.5 3 11 0v-5M21 9v6"/></svg></span></div>
+              <div class="stat-value" id="stat-courses">—</div>
+              <div class="stat-foot"><span class="stat-foot-mark">✳</span> unique fields of study</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-heading"><span>Average age</span><span class="stat-icon icon-peach"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div>
+              <div class="stat-value"><span id="stat-age">—</span><small> yrs</small></div>
+              <div class="stat-foot"><span class="stat-foot-mark">◎</span> across your student body</div>
+            </article>
+          </section>
+
+          <section class="content-grid">
+            <article class="panel directory-panel" id="directory">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-eyebrow">THE PEOPLE</p>
+                  <h2>Student directory <span class="heading-count" id="directory-count">0</span></h2>
+                </div>
+                <a class="text-link" href="#directory">View directory <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="table-toolbar">
+                <label class="search-box">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+                  <input id="student-search" type="search" placeholder="Search students or courses..." autocomplete="off" />
+                  <kbd>Ctrl K</kbd>
+                </label>
+                <label class="filter-wrap">
+                  <span class="sr-only">Filter by course</span>
+                  <select id="course-filter"><option value="">All courses</option></select>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg>
+                </label>
+              </div>
+              <div class="table-scroll">
+                <table>
+                  <thead><tr><th>STUDENT</th><th>COURSE</th><th>AGE</th><th>ID</th><th><span class="sr-only">Actions</span></th></tr></thead>
+                  <tbody id="student-rows"></tbody>
+                </table>
+                <div class="empty-state" id="empty-state" hidden>
+                  <span class="empty-icon" aria-hidden="true">✳</span>
+                  <strong id="empty-title">Your community starts here.</strong>
+                  <p id="empty-copy">Add your first student to bring this space to life.</p>
+                  <button class="button button-secondary" id="empty-add" type="button">Add your first student</button>
+                </div>
+              </div>
+              <div class="table-footer"><span id="table-summary">Showing 0 students</span><span class="table-footer-note"><span class="live-dot"></span> Synced with your directory</span></div>
+            </article>
+
+            <aside class="panel insights-panel" id="insights">
+              <div class="panel-heading">
+                <div><p class="panel-eyebrow">A GROWING MIX</p><h2>Course mix</h2></div>
+                <span class="insight-more" aria-hidden="true">↗</span>
+              </div>
+              <p class="insight-intro">The different paths your students are exploring.</p>
+              <div class="course-list" id="course-list"></div>
+              <div class="insight-footer"><span class="insight-footer-icon">✳</span><span id="insight-footer-copy">Every path adds something unique.</span></div>
+            </aside>
+          </section>
+
+          <footer class="page-footer"><span>Made for the people who make campus.</span><span>Campus <span class="footer-dot">·</span> Student community</span></footer>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="modal" id="student-modal" aria-labelledby="modal-title">
+      <form class="modal-card" id="student-form">
+        <button class="modal-close" id="close-add" type="button" aria-label="Close dialog">×</button>
+        <p class="panel-eyebrow">GROW YOUR COMMUNITY</p>
+        <h2 id="modal-title">Add a student</h2>
+        <p class="modal-description">A new face, a new perspective. Add their details below.</p>
+        <label class="form-field">Full name<input name="name" required minlength="1" maxlength="100" placeholder="e.g. Asha Rao" /></label>
+        <div class="form-row">
+          <label class="form-field">Age<input name="age" type="number" required min="1" max="150" placeholder="20" /></label>
+          <label class="form-field">Course<input name="course" required minlength="1" maxlength="100" placeholder="e.g. Computer Science" /></label>
+        </div>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <div class="modal-actions"><button class="button button-secondary" id="cancel-add" type="button">Cancel</button><button class="button button-primary" id="submit-student" type="submit">Add student <span aria-hidden="true">↗</span></button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="detail-modal" aria-labelledby="detail-title">
+      <div class="modal-card detail-card">
+        <button class="modal-close" id="close-detail" type="button" aria-label="Close dialog">×</button>
+        <p class="panel-eyebrow">STUDENT PROFILE</p>
+        <div class="detail-avatar" id="detail-avatar" aria-hidden="true"></div>
+        <h2 id="detail-title"></h2>
+        <p class="modal-description">A valued part of your campus community.</p>
+        <dl class="detail-list">
+          <div><dt>Student ID</dt><dd id="detail-id"></dd></div>
+          <div><dt>Course</dt><dd id="detail-course"></dd></div>
+          <div><dt>Age</dt><dd id="detail-age"></dd></div>
+        </dl>
+        <div class="modal-actions"><button class="button button-secondary" id="close-detail-action" type="button">Done</button></div>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
